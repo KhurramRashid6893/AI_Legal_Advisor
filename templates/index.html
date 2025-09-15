@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="chat-container">
+    <div class="chat-header">
+        <h2>Legal Query Chatbot</h2>
+        <div class="controls-wrapper">
+            <div class="selector-group">
+                <label for="language-selector">Language:</label>
+                <select id="language-selector">
+                    <option value="English" selected>English</option>
+                    <option value="Hindi">हिन्दी</option>
+                    <option value="Marathi">मराठी</option>
+                    <option value="Tamil">தமிழ்</option>
+                </select>
+            </div>
+            <div class="selector-group">
+                <label for="country-selector">Jurisdiction:</label>
+                <select id="country-selector">
+                    <option value="India" selected>India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div id="location-bar">Detecting location...</div>
+    <div class="chat-box" id="chat-box">
+        <div class="message ai-message">
+            <div class="message-content">
+                Hello! Your location and language are set. Ask a legal question to begin.
+            </div>
+        </div>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Ask 'What are my rights if...'" autofocus>
+        <button id="send-btn">Send</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

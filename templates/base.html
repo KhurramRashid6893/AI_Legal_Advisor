@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Legal Advisor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <header class="main-header">
+            <div class="logo">
+                <h1>⚖️ AI Legal Advisor</h1>
+            </div>
+            <nav class="main-nav">
+                <a href="{{ url_for('index') }}" class="{{ 'active' if page == 'chatbot' else '' }}">Chatbot</a>
+                <a href="{{ url_for('drafter') }}" class="{{ 'active' if page == 'drafter' else '' }}">Document Drafter</a>
+                <a href="{{ url_for('navigator') }}" class="{{ 'active' if page == 'navigator' else '' }}">Procedure Navigator</a>
+            </nav>
+        </header>
+        
+        <main class="content-wrapper">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

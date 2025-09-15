@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-container">
+    <div class="page-header">
+        <h2>Document Drafting Assistant</h2>
+        <p>Generate drafts for basic legal documents. Always have a lawyer review the final document.</p>
+    </div>
+    <div class="drafter-wrapper">
+        <div class="form-panel">
+            <h3>Document Details</h3>
+            <form id="draft-form">
+                <label for="doc-country-selector">Country:</label>
+                <select id="doc-country-selector">
+                    <option value="India" selected>India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                </select>
+
+                <label for="doc-type">Document Type:</label>
+                <select id="doc-type">
+                    <option value="Rental Agreement">Rental Agreement</option>
+                    <option value="Non-Disclosure Agreement (NDA)">Non-Disclosure Agreement (NDA)</option>
+                    <option value="Affidavit">General Affidavit</option>
+                    <option value="Legal Notice">Legal Notice</option>
+                </select>
+
+                <label for="doc-details">Key Details:</label>
+                <textarea id="doc-details" rows="10" placeholder="e.g., Landlord: John Doe, Tenant: Jane Smith, Address: 123 Main St, Rent: 15000 INR, Term: 11 months..."></textarea>
+                
+                <button type="submit" id="draft-btn">Generate Draft</button>
+            </form>
+        </div>
+        <div class="draft-panel">
+            <h3>Generated Draft</h3>
+            <div id="draft-output" class="draft-output-box">
+                Your generated document will appear here...
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/drafter.js') }}"></script>
+{% endblock %}
